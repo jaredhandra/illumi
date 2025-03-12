@@ -1,11 +1,19 @@
-// import './assets/main.css'
+import './assets/index.css'
 
-import { createApp } from 'vue'
+import { createApp } from 'vue';
+import App from './App.vue';
+import PrimeVue from 'primevue/config'
+import Aura from '@primeuix/themes/aura'
 import { createPinia } from 'pinia'
-import App from './App.vue'
 
-const app = createApp(App)
-
+const app = createApp(App);
 app.use(createPinia())
-
-app.mount('#app')
+app.use(PrimeVue, {
+  theme: {
+    preset: Aura,
+    options: {
+      darkModeSelector: ".p-dark",
+    }
+  }
+})
+app.mount('#app');
